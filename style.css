@@ -2,13 +2,12 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body, html { height:100%; font-family: sans-serif; }
 
-/* Background image on homepage */
+/* Background color on homepage */
 .homepage {
-  background: url('images/background.png') no-repeat center center;
-  background-size: cover;
-  height:100%;
-  display: flex;
-  flex-direction: column;
+  background:#111;
+  min-height:100%;
+  display:flex;
+  flex-direction:column;
 }
 
 /* Top nav bar */
@@ -27,13 +26,36 @@ body, html { height:100%; font-family: sans-serif; }
   text-decoration: underline;
 }
 
-/* Content container */
-.content {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
-  font-size: 2em;
+/* Hero section */
+.hero {
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  position:sticky;
+  top:0;
+  background:#111;
+}
+
+#hero-title {
+  font-size:3em;
+  text-shadow:0 1px 3px rgba(0,0,0,0.7);
+  transition:opacity 0.5s ease;
+}
+
+/* Background image section */
+.image-section {
+  height:100vh;
+  background:url('images/background.png') no-repeat center center/cover;
+  background-attachment:fixed;
+}
+
+/* Info section */
+.info {
+  padding:3em 1em;
+  max-width:800px;
+  margin:auto;
+  color:#fff;
+  line-height:1.6;
 }
