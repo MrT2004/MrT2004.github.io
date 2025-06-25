@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Checkout – Verdant Planting</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="verdant-planting.html">Verdant Planting</a>
+  </nav>
+
+  <div style="padding:2em; text-align:center;">
+    <h1>Purchase Verdant Planting</h1>
+    <p>Annual subscription: <strong>\$49.99</strong></p>
+    <div id="paypal-button-container"></div>
+  </div>
+
+  <!-- PayPal SDK (Sandbox) -->
+  <script src="https://www.paypal.com/sdk/js?
+    client-id=YOUR_SANDBOX_CLIENT_ID
+    &currency=USD">
+  </script>
+  <script>
+    paypal.Buttons({
+      createOrder: (data, actions) =>
+        actions.order.create({
+          purchase_units: [{ amount: { value: '49.99' } }]
+        }),
+      onApprove: (data, actions) =>
+        actions.order.capture().then(details => {
+          alert('Thank you, ' + details.payer.name.given_name + '!');
+        })
+    }).render('#paypal-button-container');
+  </script>
+</body>
+</html>
